@@ -229,9 +229,6 @@ var score = {
       action: {
         softLeft: function () {
           game.state.start('menu');
-        },
-        backspace: function () {
-          game.state.start('menu');
         }
       }
     });
@@ -334,9 +331,6 @@ var options = {
         },
         ArrowDown: function () {
           self.down();
-        },
-        backspace: function () {
-          game.state.start('menu');
         }
       }
     });
@@ -672,12 +666,6 @@ var game_start = {
         },
         0: function () {
           self.optionPause();
-        },
-        backspace: function () {
-          Render.Confirm.show();
-        },
-        endCall: function () {
-          Render.Confirm.show();
         }
       }
     });
@@ -718,18 +706,14 @@ var menu = {
   locale: null,
   preload: function () {
     // Temporary stop the system music
-    console.log('....................................enter menu preload..............');
     var sound = this.loadSound();
     if (sound && !game.noSound.isPlaying && !game.noSound.mute) {
       game.noSound.play('', 0, 0.4, true);
     }
 
     game.navigator = game.plugins.add(Phaser.Plugin.Navigator);
-    game.softkey.defaultHandler['1'] = function(){ navigator.volumeManager && navigator.volumeManager.requestDown() };
-    game.softkey.defaultHandler['3'] = function(){ navigator.volumeManager && navigator.volumeManager.requestUp() };
   },
   create: function () {
-    console.log('....................................enter menu create..............');
     game.add.tileSprite(0, 0, 240, 320, 'bg');
     this.renderText();
     this.bind();
@@ -891,7 +875,9 @@ function JioKaiAds(adsWrapperId) {
 
 JioKaiAds.prototype.showAds = function(containerCfg) {
   if (
-    true
+    navigator.connection &&
+    ('wifi' === navigator.connection.type ||
+      'cellular' === navigator.connection.type)
   ) {
     const timeout = setTimeout(function() {
       const frame = document.getElementById('iframe-ads');
@@ -899,7 +885,7 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
         frame.remove();
       }
       clearTimeout(timeout);
-      // navigator.spatialNavigationEnabled = false;
+      navigator.spatialNavigationEnabled = false;
       containerCfg.onAdFinished();
     }, 10000);
 
@@ -923,13 +909,13 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
       listeners: {
         adviewability: function() {
           clearTimeout(timeout);
-          // navigator.spatialNavigationEnabled = true;
+          navigator.spatialNavigationEnabled = true;
           console.log('...............................................adsvisibility!!!!');
         },
         adclose: function() {
           clearTimeout(timeout);
           console.log('ad close 1');
-          // navigator.spatialNavigationEnabled = false;
+          navigator.spatialNavigationEnabled = false;
           console.log('close spatiaNavigation...............');
           containerCfg.onAdFinished();
         },
@@ -941,7 +927,7 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
     });
   } else {
     // we directory enter the game
-    // navigator.spatialNavigationEnabled = false;
+    navigator.spatialNavigationEnabled = false;
     containerCfg.onAdFinished();
   }
 }
@@ -1231,13 +1217,13 @@ Render.Confirm = {
         },
         softRight: function () {
           console.log('.........debugger....quit the game.');
-          parent.window.close();
+          // parent.window.close();
         },
         backspace: function () {
           Render.Confirm.hide();
         },
         endCall: function () {
-          parent.window.close();
+          // parent.window.close();
         }
       }
     });
@@ -1298,12 +1284,6 @@ Render.YouLose = {
           setTimeout(function () {
             game_start.btBlock = false;
           }, 200);
-        },
-        backspace: function () {
-          Render.Confirm.show();
-        },
-        endCall: function () {
-          Render.Confirm.show();
         }
       }
     });
