@@ -913,9 +913,7 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
         adclose: function() {
           clearTimeout(timeout);
           console.log('ad close 1');
-          navigator.spatialNavigationEnabled = false;
           console.log('close spatiaNavigation...............');
-          containerCfg.onAdFinished();
         },
         adclick: function() {
           clearTimeout(timeout);
