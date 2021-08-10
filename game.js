@@ -919,6 +919,8 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
         },
         adclick: function() {
           clearTimeout(timeout);
+          window.jio_gameSDK.spatialNav(false);
+          containerCfg.onAdFinished();
           console.log('ad clicked 1');
         }
       }
