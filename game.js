@@ -705,7 +705,8 @@ document.addEventListener('focus', function (e) {
   if (document.querySelector("iframe")) {
     // do nothing
   } else {
-    navigator.spatialNavigationEnabled = false;
+    console.log('got game focus without iframe!!!');
+    window.jio_gameSDK.spatialNav(false);
   }
 });
 
