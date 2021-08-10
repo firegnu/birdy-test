@@ -701,6 +701,14 @@ document.addEventListener('visibilitychange', function (e) {
   }
 });
 
+document.addEventListener('focus', function (e) {
+  if (document.querySelector("iframe")) {
+    // do nothing
+  } else {
+    navigator.spatialNavigationEnabled = false;
+  }
+});
+
 var menu = {
   softkey: null,
   locale: null,
