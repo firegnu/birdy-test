@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // do nothing
     } else {
       console.log('got game focus without ads iframe!!!');
-      window.jio_gameSDK.spatialNav(false);
+      if(typeof window.jio_gameSDK !== 'undefined') {
+        window.jio_gameSDK.spatialNav(false);
+      }
     }
   });
 });
