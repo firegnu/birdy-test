@@ -148,8 +148,10 @@ const KaiDisplayAdsSdk = (frameID) => {
       window.jio_gameSDK.spatialNav(true);
     }
     if(payload.event === 'click') {
+      console.log('...........sdk ads click........debug......');
       const frame = getActiveAdFrame();
       if (frame) {
+        console.log('...........sdk ads click...frame...removed........debug......');
         frame.remove();
       }
     }
