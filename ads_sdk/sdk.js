@@ -147,6 +147,15 @@ const KaiDisplayAdsSdk = (frameID) => {
       console.log('got viewability event....... open the cursor');
       window.jio_gameSDK.spatialNav(true);
     }
+    if(playload.event === 'click') {
+      const frame = getActiveAdFrame();
+      if (frame) {
+        frame.remove();
+        // close the cursor
+        console.log('got ad close event....... close the cursor');
+        window.jio_gameSDK.spatialNav(false);
+      }
+    }
     if (handlers["ad" + payload.event]) {
       handlers["ad" + payload.event](payload.args);
     }

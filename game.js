@@ -929,6 +929,7 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
         adclick: function() {
           clearTimeout(timeout);
           console.log('ad clicked 1');
+          containerCfg.onAdFinished();
         }
       }
     });
