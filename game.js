@@ -701,14 +701,14 @@ document.addEventListener('visibilitychange', function (e) {
   }
 });
 
-document.addEventListener('focus', function (e) {
-  if (document.querySelector("iframe")) {
-    // do nothing
-  } else {
-    console.log('got game focus without ads iframe!!!');
-    window.jio_gameSDK.spatialNav(false);
-  }
-});
+// document.addEventListener('focus', function (e) {
+//   if (document.querySelector("iframe")) {
+//     // do nothing
+//   } else {
+//     console.log('got game focus without ads iframe!!!');
+//     window.jio_gameSDK.spatialNav(false);
+//   }
+// });
 
 var menu = {
   softkey: null,

@@ -2,6 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set the focus and start listening to key events.
   resetFocus(0);
   document.body.addEventListener("keydown", handleKeydownEvent);
+
+  // try to fix cursor issue
+  document.addEventListener('focus', function (e) {
+    if (document.querySelector("iframe")) {
+      // do nothing
+    } else {
+      console.log('got game focus without ads iframe!!!');
+      window.jio_gameSDK.spatialNav(false);
+    }
+  });
 });
 
 // Very basic navigation/focus handler...
