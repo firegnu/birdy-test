@@ -701,15 +701,6 @@ document.addEventListener('visibilitychange', function (e) {
   }
 });
 
-// document.addEventListener('focus', function (e) {
-//   if (document.querySelector("iframe")) {
-//     // do nothing
-//   } else {
-//     console.log('got game focus without ads iframe!!!');
-//     window.jio_gameSDK.spatialNav(false);
-//   }
-// });
-
 var menu = {
   softkey: null,
   locale: null,
@@ -886,16 +877,6 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
   if (
     true
   ) {
-    // const timeout = setTimeout(function() {
-    //   const frame = document.getElementById('iframe-ads');
-    //   if (frame) {
-    //     frame.remove();
-    //   }
-    //   clearTimeout(timeout);
-    //   navigator.spatialNavigationEnabled = false;
-    //   containerCfg.onAdFinished();
-    // }, 10000);
-
     const ifrm = document.createElement('iframe');
     ifrm.setAttribute('id', 'iframe-ads');
     ifrm.setAttribute('style', 'border: none;');
