@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('focus', function (e) {
     if (document.querySelector("iframe")) {
       // do nothing
+      console.log('got game focus without ads iframe!!!');
+      if(typeof window.jio_gameSDK !== 'undefined') {
+        window.jio_gameSDK.spatialNav(true);
+      }
     } else {
       console.log('got game focus without ads iframe!!!');
       if(typeof window.jio_gameSDK !== 'undefined') {
