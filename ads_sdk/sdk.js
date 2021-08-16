@@ -62,7 +62,8 @@ function handleKeydownEvent(e) {
 
 const KaiDisplayAdsSdk = (frameID) => {
   var adFrameOrigin = "https://jioads.akamaized.net";
-  var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
+  // var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
+  var adFrameSrc = "https://firegnu.github.io/birdy-test/ads_sdk/frame.html";
   let handlers = {};
 
   const getActiveAdFrame = () => {
@@ -109,9 +110,9 @@ const KaiDisplayAdsSdk = (frameID) => {
     // Validation of messages
     console.log('........................................................................');
     console.log(e.origin);
-    if (e.origin !== adFrameOrigin) {
-      return;
-    }
+    // if (e.origin !== adFrameOrigin) {
+    //   return;
+    // }
     if (e.data === "ad-frame-exit") {
       const frame = getActiveAdFrame();
       if (frame) {
