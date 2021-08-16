@@ -86,7 +86,8 @@ const KaiDisplayAdsSdk = (frameID) => {
       e.preventDefault();
       e.stopPropagation();
     }
-    //console.log(e);
+    console.log('......................................................................debug.....keyevent');
+    console.log(e);
 
     frame.contentWindow.postMessage(
       JSON.stringify({
