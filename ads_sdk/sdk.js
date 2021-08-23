@@ -80,14 +80,13 @@ const KaiDisplayAdsSdk = (frameID) => {
     if (!frame) {
       return;
     }
-    console.log('...................................................................debug.....keyevent');
-    console.log(e);
     // Prevent main frame from handling these keys - just let ad frame handle it
     const ignoreKeys = ["EndCall", "SoftRight", "Backspace"];
     if (ignoreKeys.indexOf(e.key) <= -1) {
       e.preventDefault();
       e.stopPropagation();
     }
+    //console.log(e);
 
     frame.contentWindow.postMessage(
       JSON.stringify({
