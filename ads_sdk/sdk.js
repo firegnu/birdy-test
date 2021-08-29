@@ -62,7 +62,7 @@ function handleKeydownEvent(e) {
 
 const KaiDisplayAdsSdk = (frameID) => {
   var adFrameOrigin = "https://jioads.akamaized.net";
-  var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
+  var adFrameSrc = "https://jioads1.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
   let handlers = {};
 
   const getActiveAdFrame = () => {
