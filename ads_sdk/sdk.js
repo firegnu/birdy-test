@@ -199,9 +199,9 @@ const KaiDisplayAdsSdk = (frameID) => {
    * @param {HTMLIFrameElement} frame
    */
   const initFrame = (frame, adspot, pkg, adref, cdata, w, h, topmargin, fullscreen, advid, uid) => {
-     if(typeof window.jio_gameSDK !== 'undefined') {
+     // if(typeof window.jio_gameSDK !== 'undefined') {
       window.jio_gameSDK.spatialNav(true);
-     }
+    //  }
     frame.onload = () => {
       frame.style.display = "block";
     };
