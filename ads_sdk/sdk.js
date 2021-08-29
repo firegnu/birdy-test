@@ -199,12 +199,9 @@ const KaiDisplayAdsSdk = (frameID) => {
    * @param {HTMLIFrameElement} frame
    */
   const initFrame = (frame, adspot, pkg, adref, cdata, w, h, topmargin, fullscreen, advid, uid) => {
-    if(typeof window.jio_gameSDK !== 'undefined') {
-      console.log('ccccccccccccccccccccccccccccccccccccccccccccc');
+    // if(typeof window.jio_gameSDK !== 'undefined') {
       window.jio_gameSDK.spatialNav(true);
-    } else {
-      console.log('ddddddddddddddddddddddddddddddddddddddddddddd');
-    }
+    // }
     frame.onload = () => {
       frame.style.display = "block";
     };
