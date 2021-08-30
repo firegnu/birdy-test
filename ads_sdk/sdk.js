@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       console.log('got game focus without ads iframe!!!');
-      // if(typeof window.jio_gameSDK !== 'undefined') {
+       if(typeof window.jio_gameSDK !== 'undefined') {
         window.jio_gameSDK.spatialNav(false);
-      // }
+       }
     }
   });
 });
